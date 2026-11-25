@@ -1,0 +1,450 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 0%, #642638 0%, transparent 48%),
+        linear-gradient(145deg, #0b080a, #210d16 55%, #090709);
+    color: #f7e8d7;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.gift-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 65px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ambient-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #a13d5a;
+    filter: blur(140px);
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.gold-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #e6c18d;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #e6c18d;
+    animation: sparkle 3s infinite alternate;
+}
+
+.particle-one {
+    top: 30%;
+    left: 15%;
+}
+
+.particle-two {
+    top: 55%;
+    right: 14%;
+    animation-delay: 1s;
+}
+
+.particle-three {
+    top: 75%;
+    left: 23%;
+    animation-delay: 2s;
+}
+
+.gift-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 650px;
+    animation: fadeUp 1s ease;
+}
+
+.eyebrow {
+    color: #d9b47c;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.gift-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 58px);
+    color: #f3d7ac;
+    letter-spacing: 2px;
+    text-shadow: 0 0 25px #d9a66a44;
+}
+
+.subtitle {
+    margin-top: 14px;
+    color: #cbb7b0;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.gift-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 550px;
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* GIFT BOX */
+
+.gift-box {
+    position: relative;
+    width: 150px;
+    height: 145px;
+    margin-top: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.gift-body {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 105px;
+    background: linear-gradient(135deg, #9b344f, #54182d);
+    border: 2px solid #d4a66f;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px #0008;
+}
+
+.gift-ribbon {
+    position: absolute;
+    width: 25px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #d2a05f, #f7d9a1, #b77c42);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 25px;
+    left: -10px;
+    width: 170px;
+    height: 35px;
+    background: linear-gradient(135deg, #c16b79, #79243d);
+    border: 2px solid #e3bd86;
+    border-radius: 5px;
+    z-index: 3;
+    transition: 0.8s ease;
+}
+
+.gift-bow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 3px;
+}
+
+.gift-bow span {
+    display: block;
+    width: 30px;
+    height: 22px;
+    border: 5px solid #e2b879;
+    border-radius: 50% 50% 10% 50%;
+}
+
+.gift-bow span:last-child {
+    transform: scaleX(-1);
+}
+
+.gift-box.opened .gift-lid {
+    transform: translate(-20px, -55px) rotate(-20deg);
+}
+
+.gift-box.opened {
+    animation: none;
+}
+
+.gift-instruction {
+    margin-top: 35px;
+    color: #d8c0b5;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.7;
+}
+
+/* BUTTON */
+
+.open-button,
+.claim-button {
+    border: 1px solid #e3c18d;
+    background: linear-gradient(110deg, #94533e, #d4aa75, #94533e);
+    color: #210f13;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.open-button {
+    padding: 15px 32px;
+    margin-top: 22px;
+    border-radius: 30px;
+}
+
+.open-button:hover,
+.claim-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #d7ad7444;
+}
+
+.open-button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+}
+
+/* COUPON */
+
+.coupon {
+    width: 100%;
+    max-width: 430px;
+    margin-top: 35px;
+    padding: 35px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d9b47c;
+    border-radius: 15px;
+    background:
+        radial-gradient(circle at 50% 0%, #79404b, transparent 55%),
+        linear-gradient(145deg, #35131f, #160b11);
+    box-shadow:
+        0 20px 60px #0009,
+        0 0 35px #d6a96b18;
+    animation: couponAppear 0.9s ease both;
+}
+
+.coupon::before,
+.coupon::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #d9b47c77;
+    transform: rotate(45deg);
+}
+
+.coupon::before {
+    top: 12px;
+    left: 12px;
+}
+
+.coupon::after {
+    bottom: 12px;
+    right: 12px;
+}
+
+.coupon-decoration {
+    color: #e4bf85;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
+
+.coupon-label {
+    color: #d6b47f;
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-top: 16px;
+}
+
+.coupon h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #f5d9ad;
+    margin-top: 15px;
+}
+
+.coupon-for {
+    color: #d8bcb2;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.coupon-divider {
+    width: 75%;
+    height: 1px;
+    margin: 22px auto;
+    background: linear-gradient(90deg, transparent, #d5ad76, transparent);
+}
+
+.coupon-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.coupon-number {
+    color: #e5bd81;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+}
+
+.coupon-value p {
+    color: #f3e0c8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+}
+
+.coupon-note {
+    color: #cdb7ad;
+    font-size: 11px;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.claim-button {
+    width: 100%;
+    padding: 17px;
+    border-radius: 8px;
+}
+
+.coupon-bottom {
+    margin-top: 20px;
+    color: #a98a79;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+/* CONFIRMATION */
+
+.confirmation {
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 28px;
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #d6ad77;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #391522, #160b11);
+    box-shadow: 0 15px 45px #0008;
+    animation: fadeUp 0.8s ease;
+}
+
+.confirmation-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.confirmation h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    color: #f1d2a5;
+}
+
+.confirmation-note {
+    margin-top: 15px;
+    color: #d4beb3;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.hidden {
+    display: none;
+}
+
+.gift-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding-top: 65px;
+    color: #997b72;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes couponAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 500px) {
+    .gift-page {
+        padding: 55px 15px 25px;
+    }
+
+    .coupon {
+        padding: 30px 20px;
+    }
+
+    .coupon h2 {
+        font-size: 30px;
+    }
+
+    .gift-footer {
+        font-size: 8px;
+    }
+}

@@ -1,0 +1,537 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 35%, #542536 0%, transparent 42%),
+        linear-gradient(135deg, #090709, #1b0d15, #090709);
+    color: #f5e8d2;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.music-page {
+    min-height: 100vh;
+    padding: 35px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.music-glow {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    background: #a13c59;
+    filter: blur(150px);
+    opacity: 0.17;
+    border-radius: 50%;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+/* HEADER */
+
+.music-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 23px;
+}
+
+.music-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(25px, 3.5vw, 35px);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 2px;
+    color: #f3dfbd;
+    text-shadow: 0 0 20px rgba(204, 155, 103, 0.2);
+}
+
+.music-subtitle {
+    color: #c9b7b0;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.gold-divider {
+    color: #c6a16c;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* PLAYER */
+
+.music-player {
+    width: min(100%, 490px);
+    position: relative;
+    z-index: 1;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(
+        145deg,
+        rgba(70, 34, 47, 0.7),
+        rgba(20, 13, 18, 0.94)
+    );
+    border: 1px solid rgba(202, 164, 112, 0.3);
+    border-radius: 25px;
+    box-shadow: 0 20px 65px rgba(0, 0, 0, 0.4);
+}
+
+/* PIRINGAN HITAM */
+
+.music-disc {
+    width: 190px;
+    height: 190px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(
+            circle,
+            #171417 0px,
+            #171417 3px,
+            #302830 4px,
+            #171417 6px
+        );
+    border: 2px solid #b58b58;
+    box-shadow:
+        0 0 0 7px rgba(181, 139, 88, 0.08),
+        0 0 35px rgba(190, 132, 83, 0.22),
+        0 15px 35px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.music-disc::before {
+    content: "";
+    position: absolute;
+    width: 78%;
+    height: 78%;
+    border: 1px solid rgba(210, 174, 127, 0.25);
+    border-radius: 50%;
+}
+
+.music-disc::after {
+    content: "";
+    position: absolute;
+    width: 58%;
+    height: 58%;
+    border: 1px solid rgba(210, 174, 127, 0.2);
+    border-radius: 50%;
+}
+
+.disc-center {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #a94e62, #64283d);
+    border: 3px solid #d3b27d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(190, 132, 83, 0.25);
+}
+
+.disc-center span {
+    color: #f8e7d0;
+    font-size: 25px;
+}
+
+.music-disc.playing {
+    animation: spinDisc 3s linear infinite;
+}
+
+@keyframes spinDisc {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* INFORMASI LAGU */
+
+.song-info {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.song-title {
+    font-family: 'Cinzel', serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #f0d5ad;
+}
+
+.song-artist {
+    font-size: 12px;
+    color: #c4aaa9;
+    margin-top: 7px;
+}
+
+/* KARAKTER */
+
+.dance-area {
+    width: 100%;
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(166, 76, 103, 0.17),
+        transparent 72%
+    );
+}
+
+.dancer {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-origin: center bottom;
+}
+
+.dancer-head {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f1d0a0, #c58a66);
+    border: 2px solid #f4d9ac;
+    color: #6c3544;
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 32px;
+    z-index: 3;
+}
+
+.dancer-body {
+    width: 38px;
+    height: 43px;
+    background: linear-gradient(145deg, #a64e67, #642c43);
+    border: 2px solid #d9ad7d;
+    border-radius: 13px 13px 10px 10px;
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    z-index: 2;
+}
+
+.dancer-arm {
+    width: 11px;
+    height: 36px;
+    border-radius: 10px;
+    background: #e5bd91;
+    position: absolute;
+    top: 37px;
+    transform-origin: top center;
+}
+
+.left-arm { left: 25px; }
+.right-arm { right: 24px; }
+
+.dancer-leg {
+    width: 12px;
+    height: 30px;
+    border-radius: 10px;
+    background: #d8ae85;
+    position: absolute;
+    top: 73px;
+    transform-origin: top center;
+}
+
+.left-leg { left: 38px; }
+.right-leg { right: 38px; }
+
+.music-player.playing .dancer {
+    animation: dancerBounce 0.45s ease-in-out infinite alternate;
+}
+
+.music-player.playing .left-arm {
+    animation: leftArmDance 0.4s ease-in-out infinite alternate;
+}
+
+.music-player.playing .right-arm {
+    animation: rightArmDance 0.4s ease-in-out infinite alternate;
+}
+
+.music-player.playing .left-leg {
+    animation: leftLegDance 0.4s ease-in-out infinite alternate;
+}
+
+.music-player.playing .right-leg {
+    animation: rightLegDance 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes dancerBounce {
+    from { transform: translateY(0) rotate(-7deg); }
+    to { transform: translateY(-9px) rotate(7deg); }
+}
+
+@keyframes leftArmDance {
+    from { transform: rotate(25deg); }
+    to { transform: rotate(-65deg); }
+}
+
+@keyframes rightArmDance {
+    from { transform: rotate(-25deg); }
+    to { transform: rotate(65deg); }
+}
+
+@keyframes leftLegDance {
+    from { transform: rotate(12deg); }
+    to { transform: rotate(-20deg); }
+}
+
+@keyframes rightLegDance {
+    from { transform: rotate(-12deg); }
+    to { transform: rotate(20deg); }
+}
+
+/* VISUALIZER */
+
+.music-visualizer {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.music-visualizer span {
+    display: block;
+    width: 4px;
+    height: 5px;
+    border-radius: 5px;
+    background: #c99b68;
+}
+
+.music-visualizer.playing span {
+    animation: soundWave 0.65s ease-in-out infinite alternate;
+}
+
+.music-visualizer span:nth-child(2n) {
+    animation-delay: 0.2s;
+}
+
+.music-visualizer span:nth-child(3n) {
+    animation-delay: 0.4s;
+}
+
+@keyframes soundWave {
+    from { height: 5px; opacity: 0.5; }
+    to { height: 32px; opacity: 1; }
+}
+
+/* LIRIK */
+
+.lyrics-box {
+    width: 100%;
+    min-height: 140px;
+    margin: 5px 0 20px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(202, 164, 112, 0.25);
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.lyrics-label {
+    color: #c6a16c;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.lyrics-display {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lyric-line {
+    color: #ffe0ad;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+    text-shadow: 0 0 12px rgba(255, 193, 133, 0.35);
+    opacity: 0;
+}
+
+.lyric-line.active {
+    opacity: 1;
+    animation: lyricAppear 0.5s ease both;
+}
+
+@keyframes lyricAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.music-player.playing .lyric-line.active {
+    animation:
+        lyricAppear 0.5s ease both,
+        lyricWiggle 0.55s ease-in-out 0.5s infinite alternate;
+}
+
+@keyframes lyricWiggle {
+    from { transform: rotate(-2deg) scale(1); }
+    to { transform: rotate(2deg) scale(1.05); }
+}
+
+.lyrics-page {
+    color: #b99a78;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 13px;
+}
+
+/* TOMBOL */
+
+.music-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(202, 164, 112, 0.16);
+    border-radius: 16px;
+}
+
+.music-controls button {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 7px;
+    border: 1px solid rgba(210, 174, 127, 0.5);
+    border-radius: 9px;
+    background: linear-gradient(135deg, #754052, #472333);
+    color: #f5e8d2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.music-controls button:hover {
+    background: linear-gradient(135deg, #a45a6d, #693449);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(169, 78, 98, 0.25);
+}
+
+.music-controls button:active {
+    transform: scale(0.96);
+}
+
+.music-note {
+    color: #bba7a0;
+    font-size: 10px;
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* FOOTER */
+
+.music-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 23px;
+    color: #a98b6b;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+
+    .music-page {
+        padding: 28px 14px 25px;
+    }
+
+    .music-header h1 {
+        font-size: 26px;
+        letter-spacing: 1.5px;
+    }
+
+    .music-player {
+        padding: 24px 14px;
+    }
+
+    .music-disc {
+        width: 170px;
+        height: 170px;
+    }
+
+    .disc-center {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dance-area {
+        min-height: 120px;
+    }
+
+    .lyrics-box {
+        min-height: 135px;
+        padding: 18px 10px;
+    }
+
+    .lyric-line {
+        font-size: 12px;
+    }
+
+    .music-controls {
+        gap: 6px;
+        padding: 12px 6px;
+    }
+
+    .music-controls button {
+        font-size: 9px;
+        padding: 11px 3px;
+        min-height: 45px;
+    }
+}

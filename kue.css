@@ -1,0 +1,463 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 35%, #542333 0%, transparent 55%),
+        linear-gradient(135deg, #10090e, #24121b, #09070a);
+    color: #f8e9d2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cake-page {
+    min-height: 100vh;
+    padding: 45px 18px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ambient-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #a33d54;
+    filter: blur(130px);
+    opacity: 0.18;
+    border-radius: 50%;
+    top: 25%;
+    pointer-events: none;
+}
+
+.cake-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: #d6ad70;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.cake-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(30px, 6vw, 44px);
+    color: #edce9a;
+    letter-spacing: 4px;
+    text-shadow: 0 0 25px #d5aa7044;
+}
+
+.subtitle {
+    color: #e7d3c9;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.cake-card {
+    width: min(100%, 500px);
+    padding: 35px 22px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    border: 1px solid #b58a57;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #391b27, #1b1018 75%);
+    box-shadow: 0 25px 65px #0009, inset 0 0 35px #b4774a12;
+}
+
+.sparkle {
+    position: absolute;
+    color: #e8c58d;
+    font-size: 24px;
+    animation: sparkle 2s infinite alternate;
+}
+
+.sparkle-one {
+    top: 25px;
+    left: 25px;
+}
+
+.sparkle-two {
+    top: 45px;
+    right: 30px;
+    animation-delay: 0.7s;
+}
+
+.wish-instruction {
+    color: #f1d8b8;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+/* AREA KUE */
+
+.cake-scene {
+    width: 310px;
+    height: 310px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* LILIN ANGKA 20 */
+
+.candles {
+    position: absolute;
+    width: 130px;
+    height: 145px;
+    left: 90px;
+    bottom: 166px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 8;
+}
+
+.number-candle {
+    width: 48px;
+    height: 125px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.number-body {
+    width: 100%;
+    height: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 86px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(90deg, #a46e48, #fff0c7, #d5a76c, #f9e1ae);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 3px 2px #12090a);
+}
+
+.number-two {
+    transform: rotate(-2deg);
+}
+
+.number-zero {
+    transform: rotate(2deg);
+}
+
+.wick {
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    top: 21px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    background: #38251d;
+    z-index: 2;
+}
+
+.flame {
+    position: absolute;
+    width: 19px;
+    height: 28px;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+    border-radius: 50% 50% 45% 45%;
+    background: radial-gradient(
+        ellipse at 50% 70%,
+        #fffbd4 0%,
+        #ffe18a 35%,
+        #ff9b45 70%,
+        #e65a2d 100%
+    );
+    box-shadow:
+        0 0 12px #ffcd66,
+        0 0 25px #ff9a43aa,
+        0 0 42px #ff7b3544;
+    animation: flicker 0.65s infinite alternate;
+    transition: opacity 0.4s, transform 0.4s;
+    z-index: 4;
+}
+
+.flame.off {
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+    animation: none;
+}
+
+/* BAGIAN ATAS KUE */
+
+.cake-top {
+    position: absolute;
+    width: 210px;
+    height: 42px;
+    left: 50px;
+    bottom: 142px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fff0d9, #d9a99d);
+    z-index: 5;
+    box-shadow: inset 0 -7px 0 #bd8583;
+}
+
+.cream {
+    position: absolute;
+    width: 19px;
+    height: 23px;
+    background: #fff0d9;
+    border-radius: 50%;
+    top: 8px;
+}
+
+.cream-one {
+    left: 25px;
+}
+
+.cream-two {
+    left: 95px;
+}
+
+.cream-three {
+    right: 25px;
+}
+
+.strawberry {
+    position: absolute;
+    color: #a92e43;
+    font-size: 24px;
+    top: -17px;
+    text-shadow: 0 2px 3px #702032;
+}
+
+.strawberry-one {
+    left: 55px;
+}
+
+.strawberry-two {
+    left: 95px;
+    top: -23px;
+}
+
+.strawberry-three {
+    right: 55px;
+}
+
+/* LAPISAN TENGAH */
+
+.cake-middle {
+    position: absolute;
+    width: 225px;
+    height: 65px;
+    left: 42px;
+    bottom: 90px;
+    border-radius: 12px 12px 18px 18px;
+    background: linear-gradient(90deg, #b16b70, #f0c8b8, #c17d80);
+    box-shadow: inset 0 -8px 0 #a75e69;
+}
+
+.middle-decoration {
+    position: absolute;
+    width: 100%;
+    height: 9px;
+    bottom: 15px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0 13px,
+        #f8dfba 13px 19px,
+        transparent 19px 27px
+    );
+}
+
+/* LAPISAN BAWAH */
+
+.cake-bottom {
+    position: absolute;
+    width: 270px;
+    height: 85px;
+    left: 20px;
+    bottom: 20px;
+    border-radius: 14px 14px 23px 23px;
+    background: linear-gradient(90deg, #76263c, #bc6576, #862a44);
+    box-shadow: inset 0 -12px 0 #642034;
+}
+
+.bottom-decoration {
+    position: absolute;
+    width: 100%;
+    height: 12px;
+    top: 24px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0 12px,
+        #e9c18d 12px 16px,
+        transparent 16px 27px
+    );
+}
+
+/* PIRING KUE */
+
+.cake-plate {
+    position: absolute;
+    width: 300px;
+    height: 22px;
+    left: 5px;
+    bottom: 10px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #80583d, #f2d7a5, #946b48);
+    box-shadow: 0 9px 20px #0008;
+}
+
+/* TOMBOL */
+
+.cake-instruction {
+    color: #e8c58d;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 0;
+}
+
+.blow-button {
+    margin-top: 18px;
+    padding: 14px 28px;
+    border: 1px solid #e7c58f;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #e4c18b, #a8734c);
+    color: #24131a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blow-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #d5aa7055;
+}
+
+.blow-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* PESAN */
+
+.wish-message {
+    display: none;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #b58a5755;
+}
+
+.wish-message.show {
+    display: block;
+    animation: reveal 1s ease forwards;
+}
+
+.wish-label {
+    color: #d6ad70;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.wish-message h2 {
+    font-family: 'Cinzel', serif;
+    color: #f2d39f;
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+
+.wish-text {
+    color: #e7d7ce;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.wish-ending {
+    color: #d6ad70;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.cake-footer {
+    margin-top: 25px;
+    color: #b89578;
+    font-size: 9px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ANIMASI */
+
+@keyframes flicker {
+    from {
+        transform: translateX(-50%) rotate(-5deg) scale(1);
+    }
+    to {
+        transform: translateX(-50%) rotate(5deg) scale(1.08);
+    }
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0.4;
+        transform: scale(0.8) rotate(0deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2) rotate(20deg);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .cake-page {
+        padding: 30px 12px;
+    }
+
+    .cake-card {
+        padding: 30px 12px;
+    }
+
+    .cake-scene {
+        transform: scale(0.88);
+        margin-top: -12px;
+        margin-bottom: -15px;
+    }
+
+    .cake-header h1 {
+        font-size: 32px;
+    }
+}

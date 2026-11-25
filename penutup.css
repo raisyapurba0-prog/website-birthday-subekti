@@ -1,0 +1,275 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 0%, #67263d 0%, transparent 45%),
+        linear-gradient(145deg, #0c070b, #1c0b13 55%, #090609);
+    color: #fff0e4;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+.background-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #b54a70;
+    filter: blur(150px);
+    opacity: 0.13;
+    pointer-events: none;
+}
+
+.closing-page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+    padding: 65px 20px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eyebrow {
+    color: #dfb77e;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.decorative-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #e7c18c;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.decorative-line span {
+    width: 55px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d7ac75);
+}
+
+.decorative-line span:last-child {
+    transform: rotate(180deg);
+}
+
+.closing-card {
+    width: min(100%, 650px);
+    padding: 45px 45px 35px;
+    border: 1px solid #c79c6a66;
+    border-radius: 25px;
+    background:
+        linear-gradient(145deg, #ffffff0d, #ffffff03),
+        #1a0d13cc;
+    box-shadow:
+        0 25px 80px #00000066,
+        inset 0 0 40px #ffffff04;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    animation: cardAppear 1.2s ease both;
+}
+
+.crown {
+    font-size: 42px;
+    color: #e7c18c;
+    margin-bottom: 18px;
+    text-shadow: 0 0 25px #e4b87577;
+}
+
+.small-heading {
+    color: #c9a17e;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.closing-card h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(43px, 8vw, 65px);
+    line-height: 1.05;
+    font-weight: 600;
+    color: #fff0dd;
+    margin-bottom: 18px;
+}
+
+.closing-card h1 span {
+    display: block;
+    color: #e9c18d;
+    font-style: italic;
+    text-shadow: 0 0 25px #e6b87533;
+}
+
+.opening-text {
+    color: #d8c2c8;
+    font-size: 12px;
+    line-height: 2;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    color: #e5bd88;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: "";
+    width: 75px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #bd9468);
+}
+
+.gold-divider::after {
+    transform: rotate(180deg);
+}
+
+.message-content {
+    text-align: left;
+}
+
+.message-title {
+    color: #dfb77e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 23px;
+}
+
+.message-content > p:not(.message-title):not(.signature) {
+    color: #e0cfd0;
+    font-size: 12px;
+    line-height: 2.1;
+    margin-bottom: 17px;
+}
+
+.message-content .special-message {
+    color: #f0d1d4 !important;
+    border-left: 2px solid #c99a70;
+    padding-left: 17px;
+    margin-top: 25px;
+}
+
+.signature {
+    text-align: right;
+    color: #cdb6b7;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    margin-top: 28px;
+}
+
+.signature span {
+    color: #e9c18d;
+    font-size: 27px;
+    font-style: italic;
+}
+
+.closing-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #b18b70;
+    font-size: 8px;
+    letter-spacing: 3px;
+    margin-top: 35px;
+}
+
+.closing-footer span {
+    color: #e8c18d;
+}
+
+.bottom-note {
+    color: #b99da4;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    color: #f0d3a4;
+    animation: twinkle 3s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .closing-page {
+        padding: 45px 14px 30px;
+    }
+
+    .closing-card {
+        padding: 35px 23px 28px;
+    }
+
+    .eyebrow {
+        letter-spacing: 3px;
+        font-size: 9px;
+    }
+
+    .message-content > p:not(.message-title):not(.signature) {
+        font-size: 11px;
+    }
+
+    .closing-footer {
+        letter-spacing: 2px;
+        font-size: 7px;
+    }
+}

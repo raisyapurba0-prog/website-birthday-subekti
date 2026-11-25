@@ -1,0 +1,422 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #090608;
+    color: #f8e7c5;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* HALAMAN UTAMA */
+
+.gallery-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 65px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(119, 37, 65, 0.35), transparent 55%),
+        radial-gradient(ellipse at 15% 85%, rgba(91, 27, 47, 0.2), transparent 45%),
+        linear-gradient(135deg, #090608, #1b0b12, #090608);
+}
+
+.background-glow {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    width: 450px;
+    height: 450px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(194, 126, 73, 0.09);
+    filter: blur(110px);
+    animation: ambientGlow 6s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes ambientGlow {
+    from {
+        opacity: 0.3;
+        scale: 0.8;
+    }
+
+    to {
+        opacity: 0.8;
+        scale: 1.2;
+    }
+}
+
+/* HEADER */
+
+.gallery-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.gallery-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: #c9a46d;
+    margin-bottom: 22px;
+}
+
+.gallery-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(25px, 5vw, 43px);
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 3px;
+    color: #f3dfbd;
+
+    text-shadow:
+        0 0 15px rgba(226, 184, 119, 0.25),
+        0 0 35px rgba(226, 184, 119, 0.12);
+}
+
+.gallery-subtitle {
+    font-size: 19px;
+    font-style: italic;
+    color: #d6bda4;
+    margin-top: 12px;
+}
+
+.gold-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+    color: #c9a46d;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: "";
+    width: 65px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b68b58);
+}
+
+.gold-divider::after {
+    transform: rotate(180deg);
+}
+
+/* AREA GALERI */
+
+.gallery-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* BINGKAI FOTO */
+
+.photo-frame {
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+    height: 440px;
+    padding: 13px;
+
+    background: linear-gradient(
+        145deg,
+        #e4c58f,
+        #735033,
+        #d8b77e,
+        #735033,
+        #e4c58f
+    );
+
+    box-shadow:
+        0 0 0 1px rgba(236, 205, 151, 0.35),
+        0 20px 65px rgba(0, 0, 0, 0.55),
+        0 0 35px rgba(198, 151, 92, 0.18);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    background: #241018;
+    opacity: 1;
+    transform: scale(1);
+    transition:
+        opacity 0.4s ease,
+        transform 0.6s ease;
+}
+
+.photo-number {
+    position: absolute;
+    z-index: 3;
+    top: 25px;
+    right: 25px;
+    padding: 8px 13px;
+
+    background: rgba(20, 9, 14, 0.82);
+    border: 1px solid rgba(220, 184, 126, 0.6);
+
+    color: #f2d7a8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* ORNAMEN BINGKAI */
+
+.photo-corner {
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    border-color: #f2d7a8;
+    border-style: solid;
+}
+
+.top-left {
+    top: 7px;
+    left: 7px;
+    border-width: 2px 0 0 2px;
+}
+
+.top-right {
+    top: 7px;
+    right: 7px;
+    border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+    bottom: 7px;
+    left: 7px;
+    border-width: 0 0 2px 2px;
+}
+
+.bottom-right {
+    bottom: 7px;
+    right: 7px;
+    border-width: 0 2px 2px 0;
+}
+
+/* CAPTION FOTO */
+
+.photo-caption {
+    min-height: 85px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.caption-decoration {
+    color: #c9a46d;
+    font-size: 20px;
+    margin-bottom: 5px;
+    animation: heartGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes heartGlow {
+    from {
+        text-shadow: 0 0 3px rgba(214, 180, 125, 0.3);
+    }
+
+    to {
+        text-shadow: 0 0 14px rgba(214, 180, 125, 0.8);
+    }
+}
+
+.photo-caption p {
+    font-size: 21px;
+    font-style: italic;
+    color: #e5c9a5;
+}
+
+/* TOMBOL NAVIGASI FOTO */
+
+.gallery-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-controls button {
+    padding: 13px 20px;
+    border: 1px solid #b68b58;
+    background: rgba(120, 54, 70, 0.2);
+
+    color: #e9c997;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+    transition: 0.35s ease;
+}
+
+.gallery-controls button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #a6784d, #d6b47d);
+    color: #1b0b12;
+    box-shadow: 0 0 20px rgba(219, 176, 112, 0.3);
+    transform: translateY(-3px);
+}
+
+.gallery-controls button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* INDIKATOR PROGRES */
+
+.gallery-progress {
+    width: 100%;
+    max-width: 280px;
+    margin-top: 28px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 2px;
+    background: rgba(213, 178, 129, 0.2);
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(90deg, #9b6b43, #e8c58f);
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(232, 197, 143, 0.5);
+}
+
+/* TOMBOL LANJUTKAN */
+
+.continue-button {
+    display: inline-block;
+    margin-top: 27px;
+    padding: 15px 38px;
+
+    border: 1px solid #e0c18b;
+    border-radius: 35px;
+
+    background: linear-gradient(
+        135deg,
+        #9b6b43,
+        #e0c18b,
+        #9b6b43
+    );
+
+    color: #1b0b12;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    box-shadow: 0 0 18px rgba(214, 180, 125, 0.2);
+    transition: 0.4s ease;
+}
+
+.continue-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 20px rgba(214, 180, 125, 0.4),
+        0 0 35px rgba(214, 180, 125, 0.25);
+}
+
+.continue-button[hidden] {
+    display: none;
+}
+
+/* FOOTER */
+
+.gallery-footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 42px;
+    text-align: center;
+}
+
+.gallery-footer p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #a98a6c;
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 600px) {
+
+    .gallery-page {
+        padding: 45px 15px 30px;
+    }
+
+    .gallery-header {
+        margin-bottom: 30px;
+    }
+
+    .gallery-label {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .gallery-header h1 {
+        font-size: 27px;
+        letter-spacing: 2px;
+    }
+
+    .gallery-subtitle {
+        font-size: 16px;
+    }
+
+    .photo-frame {
+        height: min(115vw, 410px);
+        padding: 10px;
+    }
+
+    .photo-caption p {
+        font-size: 18px;
+    }
+
+    .gallery-controls {
+        gap: 8px;
+    }
+
+    .gallery-controls button {
+        padding: 12px 13px;
+        font-size: 9px;
+    }
+
+    .continue-button {
+        padding: 13px 30px;
+        font-size: 10px;
+    }
+
+    .gallery-footer {
+        margin-top: 35px;
+    }
+}

@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arsip Orang Keren dan Cakep ♡</title>
+
+    <link rel="stylesheet" href="galeri.css">
+</head>
+
+<body>
+
+    <main class="gallery-page">
+
+        <div class="background-glow"></div>
+
+        <header class="gallery-header">
+            <p class="gallery-label">A COLLECTION OF LITTLE MEMORIES</p>
+
+            <h1>ARSIP ORANG KEREN<br>DAN CAKEP</h1>
+
+            <p class="gallery-subtitle">
+                Some little moments, worth keeping forever. ♡
+            </p>
+
+            <div class="gold-divider">
+                <span>✦</span>
+            </div>
+        </header>
+
+        <section class="gallery-container">
+
+            <div class="photo-frame">
+
+                <div class="photo-number" id="photoNumber">
+                    01 / 10
+                </div>
+
+                <img
+                    src="assets/foto/foto1.jpg"
+                    alt="Kenangan Subekti"
+                    id="galleryImage"
+                >
+
+                <div class="photo-corner top-left"></div>
+                <div class="photo-corner top-right"></div>
+                <div class="photo-corner bottom-left"></div>
+                <div class="photo-corner bottom-right"></div>
+
+            </div>
+
+            <div class="photo-caption">
+                <span class="caption-decoration">♡</span>
+
+                <p id="galleryCaption">
+                    Kece abis, nggak ada lawan.
+                </p>
+            </div>
+
+            <div class="gallery-controls">
+
+                <button id="previousButton" disabled>
+                    ← SEBELUMNYA
+                </button>
+
+                <button id="nextButton">
+                    BERIKUTNYA →
+                </button>
+
+            </div>
+
+            <div class="gallery-progress">
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- Muncul setelah foto ke-10 -->
+            <a
+                href="./musik.html"
+                class="continue-button"
+                id="continueButton"
+                hidden
+            >
+                LANJUTKAN →
+            </a>
+
+        </section>
+
+        <footer class="gallery-footer">
+            <p>COLLECTED WITH A LITTLE BIT OF LOVE ♡</p>
+        </footer>
+
+    </main>
+
+    <script src="galeri.js"></script>
+
+</body>
+</html>

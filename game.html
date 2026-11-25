@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pecahkan Balon! ♡</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+    <main class="game-page">
+
+        <div class="ambient-glow"></div>
+
+        <header class="game-header">
+            <p class="eyebrow">A LITTLE GAME FOR BUBUB ♡</p>
+            <h1>PECAHKAN BALON!</h1>
+            <p class="subtitle">
+                Ayo, Bubub! Pecahkan balonnya sebelum waktunya habis!
+            </p>
+        </header>
+
+        <section class="game-info">
+            <div class="info-card">
+                <span>WAKTU</span>
+                <strong id="timer">40</strong>
+            </div>
+
+            <div class="info-card">
+                <span>SKOR</span>
+                <strong id="score">0</strong>
+            </div>
+        </section>
+
+        <div class="message-box" id="messageBox">
+            HEHE, SIAP-SIAP YA BUBUB! 🤭
+        </div>
+
+        <section class="game-arena" id="gameArena">
+
+            <div class="game-start" id="gameStart">
+                <div class="start-icon">🎈</div>
+
+                <h2>SIAP-SIAP, BUBUB!</h2>
+
+                <p>
+                    Pecahkan balon sebanyak mungkin
+                    dalam waktu 40 detik.
+                </p>
+
+                <div class="balloon-guide">
+                    <span>🎀 Pink +10</span>
+                    <span>👑 Emas +30</span>
+                    <span>💜 Ungu +20</span>
+                </div>
+
+                <button id="startButton">
+                    MULAI PERMAINAN ♡
+                </button>
+            </div>
+
+        </section>
+
+        <section class="game-result hidden" id="gameResult">
+
+            <div class="result-icon">🏆</div>
+
+            <p class="result-label">MISSION COMPLETED</p>
+
+            <h2>YEAAAY! MISI BUBUB SELESAI!</h2>
+
+            <p class="final-score">
+                Skor akhir:
+                <strong id="finalScore">0</strong>
+            </p>
+
+            <p class="result-message" id="resultMessage"></p>
+
+            <button id="continueButton">
+                LANJUTKAN ♡
+            </button>
+
+        </section>
+
+        <footer>
+            MADE WITH LOVE BY LIKA ♡
+        </footer>
+
+    </main>
+
+    <script src="game.js"></script>
+
+</body>
+</html>
